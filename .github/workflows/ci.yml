@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 인사하기
+        run: echo "Hello from GitHub Actions!"
+
+      - name: 러너 정보 보기
+        run: |
+          echo "이 스크립트는 깃헙이 빌려준 가상머신에서 실행 중"
+          whoami
+          uname -a
+          pwd
+
+      - name: 트리거 정보 보기
+        run: |
+          echo "트리거한 사람: ${{ github.actor }}"
+          echo "커밋: ${{ github.sha }}"
+          echo "브랜치: ${{ github.ref_name }}"
